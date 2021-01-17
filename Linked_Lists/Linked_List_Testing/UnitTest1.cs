@@ -80,6 +80,15 @@ namespace Linked_List_Testing
             var reversed_ill = ill.reversedList();
             Assert.AreEqual(9, reversed_ill.first());
         }
+        [TestMethod]
+        public void number_from_end()
+        {
+            var ill = new IntegerLinkedList(5);
+            ill.AddToEnd(7);
+            ill.AddToEnd(9);
+            ill.AddToBeginning(2);
+            Assert.AreEqual(3, ill.finalNode(ill,3));
+        }
 
     }
 }

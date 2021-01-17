@@ -118,6 +118,12 @@ namespace Linked_Lists.Lib
         {
             return headNode._value;
         }
+
+        public int finalNode(IntegerLinkedList a, int from_end)
+        {
+            int position = a.Count() - (from_end+1);
+            return headNode.finalNode(position);
+        }
     }
     public class SortedIntegerLinkedList
     {
@@ -291,6 +297,13 @@ namespace Linked_Lists.Lib
             else
                 return _next.reversedList(a);
             
+        }
+        public int finalNode(int return_postion)
+        {
+            if (return_postion == 0)
+                return _value;
+            else
+                return _next.finalNode(return_postion-1);
         }
     }
 }
