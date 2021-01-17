@@ -55,10 +55,31 @@ namespace Linked_List_Testing
             ill.AddSorted(6);
             ill.AddSorted(4);
             Assert.AreEqual(4, ill.first());
-            Assert.AreEqual(7, ill.third());
+            Assert.AreEqual(6, ill.third());
         }
 
-
+        [TestMethod]
+        public void MergingTwoLinkedLists() //just merges, will work on merging ill2 to start at a given node within ill
+        {
+            var ill = new IntegerLinkedList(5);
+            ill.AddToEnd(7);
+            ill.AddToEnd(9);
+            var ill2 = new IntegerLinkedList();
+            ill.AddToEnd(4);
+            ill.AddToEnd(12);
+            ill.merge(ill2);
+            Assert.AreEqual(5, ill.Count());
+                
+        }
+        [TestMethod]
+        public void ReverseLinkedList()
+        {
+            var ill = new IntegerLinkedList(5);
+            ill.AddToEnd(7);
+            ill.AddToEnd(9);
+            var reversed_ill = ill.reversedList();
+            Assert.AreEqual(9, reversed_ill.first());
+        }
 
     }
 }

@@ -99,6 +99,25 @@ namespace Linked_Lists.Lib
             else
                 headNode.remove();
         }
+        public void merge(IntegerLinkedList a)
+        {
+            if (headNode == null)
+                headNode = a.headNode;
+            else
+            {
+                headNode.merge(a.headNode);
+            }
+        }
+        public IntegerLinkedList reversedList()
+        {
+            IntegerLinkedList reversed = new IntegerLinkedList();
+            
+            return headNode.reversedList(reversed); 
+        }
+        public int first()
+        {
+            return headNode._value;
+        }
     }
     public class SortedIntegerLinkedList
     {
@@ -149,6 +168,7 @@ namespace Linked_Lists.Lib
     {
         List<string> strings = new List<string>();
         List<int> check = new List<int>();
+ 
         public int _value;
         public IntegerNode _next;
     
@@ -254,6 +274,23 @@ namespace Linked_Lists.Lib
             }
             else
                 _next.AddSorted(a);
+        }
+        
+        public void merge(IntegerNode a)
+        {
+            if (_next == null)
+                this._next = a;
+            else
+                _next.merge(a);
+        }
+        public IntegerLinkedList reversedList(IntegerLinkedList a)
+        {
+            a.AddToBeginning(_value);
+            if (_next == null)
+                return a;
+            else
+                return _next.reversedList(a);
+            
         }
     }
 }
